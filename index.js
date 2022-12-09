@@ -1,8 +1,9 @@
-const express = require("express");
+/* const express = require("express"); */
 const cors = require("cors");
 const blogPostRoutes = require("./routes/blogPost.routes");
 
-const app = express();
+/* const app = express(); */
+const app = require("./api/index");
 
 app.use(express.json());
 app.use(cors());
@@ -16,4 +17,4 @@ app.get("/", (req, res) => {
   });
 });
 
-module.exports = app;
+/* module.exports = app; */
