@@ -11,7 +11,7 @@ const blogPostSchema = mongoose.Schema(
       type: String,
       required: [true, "Please provide a body for your post."],
     },
-    category: {
+    tags: {
       type: [String],
       enum: ["JavaScript", "React", "Other"],
     },

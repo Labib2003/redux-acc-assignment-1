@@ -5,8 +5,7 @@ module.exports.getAllBlogsService = () => {
 };
 
 module.exports.postNewBlogService = (data) => {
-  const newBlogPost = new BlogPost(data);
-  return newBlogPost.save();
+  return new BlogPost(data).save();
 };
 
 module.exports.updateBlogService = (id, data) => {

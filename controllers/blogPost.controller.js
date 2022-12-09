@@ -42,10 +42,17 @@ module.exports.updateBlog = async (req, res) => {
   } = req;
   try {
     const response = await updateBlogService(id, body);
-    res.status(200).json({
-      success: true,
-      data: response,
-    });
+    if (response.modifiedCount) {
+      res.status(200).json({
+        success: true,
+        data: response,
+      });
+    } else {
+      res.status(200).json({
+        success: false,
+        message: "Could not find a post with the provided id.",
+      });
+    }
   } catch (error) {
     res.status(500).json({
       success: false,
