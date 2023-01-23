@@ -1,19 +1,10 @@
-const express = require("express");
-const cors = require("cors");
-const blogPostRoutes = require("./routes/blogPost.routes");
+const dotenv = require("dotenv").config();
+const app = require("./app");
+const dbConnect = require("./utils/dbConnect");
+const port = process.env.PORT || 6969;
 
-const app = express();
+dbConnect();
 
-app.use(express.json());
-app.use(cors());
-
-app.use("/api/v1/", blogPostRoutes);
-
-app.get("/", (req, res) => {
-  res.status(200).json({
-    success: true,
-    message: "Hello World!",
-  });
+app.listen(port, () => {
+  console.log(`Server is running at port: ${port}`);
 });
-
-module.exports = app;
